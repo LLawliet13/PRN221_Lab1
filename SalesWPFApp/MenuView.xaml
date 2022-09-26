@@ -7,9 +7,13 @@
         mc:Ignorable="d"
         Title="MenuView" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="59*"/>
+        </Grid.ColumnDefinitions>
         <Button Content="Member" HorizontalAlignment="Left" Margin="119,181,0,0" VerticalAlignment="Top" Height="62" Width="122"/>
-        <Button Content="Order" HorizontalAlignment="Left" Margin="356,181,0,0" VerticalAlignment="Top" Height="62" Width="116"/>
-        <Button Content="Product" HorizontalAlignment="Left" Margin="584,181,0,0" VerticalAlignment="Top" Height="62" Width="113"/>
+        <Button Content="Order" HorizontalAlignment="Left" Margin="28,181,0,0" VerticalAlignment="Top" Height="62" Width="116" Grid.Column="1"/>
+        <Button Content="Product" HorizontalAlignment="Left" Margin="256,181,0,0" VerticalAlignment="Top" Height="62" Width="113" Grid.Column="1"/>
 
     </Grid>
 </Window>

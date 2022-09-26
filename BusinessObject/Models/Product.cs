@@ -17,6 +17,16 @@ namespace BusinessObject.Models
         public decimal UnitPrice { get; set; }
         public int UnitInStock { get; set; }
 
+        public Product(int categoryId, string productName, string weight, decimal unitPrice, int unitInStock, ICollection<OrderDetail> orderDetails)
+        {
+            CategoryId = categoryId;
+            ProductName = productName;
+            Weight = weight;
+            UnitPrice = unitPrice;
+            UnitInStock = unitInStock;
+            OrderDetails = orderDetails;
+        }
+
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

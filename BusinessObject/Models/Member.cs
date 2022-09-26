@@ -17,6 +17,27 @@ namespace BusinessObject.Models
         public string Country { get; set; }
         public string Password { get; set; }
 
+        public Member(string email, string companyName, string city, string country, string password, ICollection<Order> orders)
+        {
+            Email = email;
+            CompanyName = companyName;
+            City = city;
+            Country = country;
+            Password = password;
+            Orders = orders;
+        }
+
+        public Member(int memberId, string email, string companyName, string city, string country, string password, ICollection<Order> orders)
+        {
+            MemberId = memberId;
+            Email = email;
+            CompanyName = companyName;
+            City = city;
+            Country = country;
+            Password = password;
+            Orders = orders;
+        }
+
         public virtual ICollection<Order> Orders { get; set; }
     }
 }

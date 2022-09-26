@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SalesWPFApp"
         mc:Ignorable="d"
         Title="ProductManagementView" Height="450" Width="878">
-    <Grid>
+    <Grid Width="942" Height="434">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="12*"/>
             <ColumnDefinition Width="11*"/>
@@ -17,7 +17,8 @@
             <RowDefinition Height="141*"/>
             <RowDefinition Height="293*"/>
         </Grid.RowDefinitions>
-        <DataGrid Margin="8,27,412,95" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="2">
+        <DataGrid Name="dataGridData" Margin="8,27,397,0"
+                  IsReadOnly="True" ItemsSource="{Binding productList,Mode=OneWay}"  VerticalAlignment="Top" Height="324" Grid.ColumnSpan="4" Grid.RowSpan="2" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="OrderId" Binding="{Binding OrderId}">
 
@@ -37,28 +38,28 @@
                 <DataGridTextColumn Width="*" Header="Freight" Binding="{Binding Freight}">
 
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Member" Binding="{Binding Member}">
-
-                </DataGridTextColumn>
 
 
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="MemberId" Margin="433,89,126,22" Grid.Column="3"/>
-        <Label Content="OrderDate" Margin="433,139,126,265" Grid.RowSpan="2" Grid.Column="3"/>
-        <Label Content="RequiredDate" Margin="428,46,131,217" Grid.Row="1" Grid.Column="3"/>
-        <Label Content="ShippedDate" Margin="433,96,126,167" Grid.Row="1" Grid.Column="3"/>
-        <Label Content="Freight" Margin="433,150,126,113" Grid.Row="1" Grid.Column="3"/>
-        <Label Content="Member" Margin="433,44,126,67" Grid.Column="3"/>
-        <TextBox Margin="514,93,45,21" Grid.Column="3"/>
-        <TextBox Margin="514,47,45,67" Grid.Column="3"/>
-        <TextBox Margin="514,5,45,265" Grid.Row="1" Grid.Column="3"/>
-        <TextBox Margin="514,54,45,217" Grid.Row="1" Grid.Column="3"/>
-        <TextBox Margin="514,104,45,167" Grid.Row="1" Grid.Column="3"/>
-        <TextBox Margin="514,154,45,118" Grid.Row="1" Grid.Column="3"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="119,242,0,0" VerticalAlignment="Top" Width="150" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="20"/>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="251,242,0,0" VerticalAlignment="Top" Width="154" Grid.Row="1" Grid.Column="3" Height="20"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="514,242,0,0" VerticalAlignment="Top" Width="159" Grid.Row="1" Grid.Column="3" Height="20"/>
+        <Label Content="MemberId" Margin="416,40,286,71" Grid.Column="3"/>
+        <Label Content="OrderDate" Margin="416,85,286,26" Grid.Column="3"/>
+        <Label Content="RequiredDate" Margin="416,133,286,271" Grid.Column="3" Grid.RowSpan="2"/>
+        <Label Content="ShippedDate" Margin="416,35,291,228" Grid.Row="1" Grid.Column="3"/>
+        <Label Content="Freight" Margin="416,88,305,180" Grid.Row="1" Grid.Column="3"/>
 
+        <Canvas Grid.Column="3" Margin="509,27,10,80" Grid.RowSpan="2" Name="canvasDataField">
+
+
+            <TextBox Name="MemberId" Height="33" Width="211" Canvas.Left="0" Canvas.Top="10" Text="{Binding SelectedItem.MemberId,ElementName=dataGridData,Mode=OneWay}"/>
+            <TextBox Name="OrderDate" Height="33" Width="211" Canvas.Left="0" Canvas.Top="58" Text="{Binding SelectedItem.OrderDate,ElementName=dataGridData,Mode=OneWay}" />
+            <TextBox Name="RequiredDate" Height="33" Width="211" Canvas.Left="0" Canvas.Top="105" Text="{Binding SelectedItem.RequiredDate,ElementName=dataGridData,Mode=OneWay}" />
+            <TextBox Name="ShippedDate" Height="33" Width="211" Canvas.Left="0" Canvas.Top="147" Text="{Binding SelectedItem.ShippedDate,ElementName=dataGridData,Mode=OneWay}"/>
+            <TextBox Name="Freight" Height="33" Width="211" Canvas.Left="0" Canvas.Top="201" Text="{Binding SelectedItem.Freight,ElementName=dataGridData,Mode=OneWay}"/>
+            <TextBox Visibility="Hidden" Name="OrderId" Text="{Binding SelectedItem.OrderId,ElementName=dataGridData,Mode=OneWay}"/>
+        </Canvas >
+        <Button Content="Add" Command="{Binding createCommand}" CommandParameter="{Binding Children, ElementName=canvasDataField}" HorizontalAlignment="Left" Margin="119,242,0,0" VerticalAlignment="Top" Width="150" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="20"/>
+        <Button Content="Update" Command="{Binding updateCommand}" CommandParameter="{Binding Children, ElementName=canvasDataField}" HorizontalAlignment="Left" Margin="251,242,0,0" VerticalAlignment="Top" Width="154" Grid.Row="1" Grid.Column="3" Height="20"/>
+        <Button Content="Delete" Command="{Binding deleteCommand}" CommandParameter="{Binding SelectedItem, ElementName=dataGridData}" HorizontalAlignment="Left" Margin="514,242,0,0" VerticalAlignment="Top" Width="159" Grid.Row="1" Grid.Column="3" Height="20"/>
     </Grid>
 </Window>

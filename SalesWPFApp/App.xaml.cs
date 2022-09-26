@@ -62,17 +62,25 @@ namespace SalesWPFApp
                 DataContext = s.GetRequiredService<LoginViewModel>()
             });
 
-            //services.AddSingleton<ProductManagementViewModel>();
-            //services.AddSingleton<ProductManagementView>(s => new ProductManagementView()
-            //{
-            //    DataContext = s.GetRequiredService<ProductManagementViewModel>()
-            //});
+            services.AddSingleton<ProductManagementViewModel>();
+            services.AddSingleton<ProductManagementView>(s => new ProductManagementView()
+            {
+                DataContext = s.GetRequiredService<ProductManagementViewModel>()
+            });
+            services.AddSingleton<MemberManagementViewModel>();
+            services.AddSingleton<MemberManagementView>(s => new MemberManagementView()
+            {
+                DataContext = s.GetRequiredService<MemberManagementViewModel>()
+            });
+           
 
         }
         public void OnStartUp(object sender, StartupEventArgs e)
         {
             var loginManagementView = serviceProvider.GetRequiredService<LoginView>();
             var orderManagementView = serviceProvider.GetRequiredService<OrderManagementView>();
+            var memberManagementView = serviceProvider.GetRequiredService<MemberManagementView>();
+            var productManagementView = serviceProvider.GetRequiredService<ProductManagementView>();
             loginManagementView.Show();
         }
 
