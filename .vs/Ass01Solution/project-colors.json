@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a70af1f0-6ce1-4635-80e3-7a4b50a5a9a9": {
+      "ProjectGuid": "a70af1f0-6ce1-4635-80e3-7a4b50a5a9a9",
+      "DisplayName": "DataAccess",
+      "ColorIndex": 0
+    },
+    "5d32eaf9-a365-4c07-bcb9-57ac935a0af0": {
+      "ProjectGuid": "5d32eaf9-a365-4c07-bcb9-57ac935a0af0",
+      "DisplayName": "BusinessObject",
+      "ColorIndex": 1
+    },
+    "daea4a79-7c5c-4b51-be76-049d3df0e414": {
+      "ProjectGuid": "daea4a79-7c5c-4b51-be76-049d3df0e414",
+      "DisplayName": "SalesWPFApp",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "63dc2da5-c15a-4038-97fb-ba1c063c5db5": {
+      "ProjectGuid": "63dc2da5-c15a-4038-97fb-ba1c063c5db5",
+      "DisplayName": "ViewModels",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

@@ -1,0 +1,67 @@
+﻿<Window x:Class="SalesWPFApp.ViewModels.OrderManagementView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalesWPFApp.ViewModels"
+  
+        mc:Ignorable="d"
+        Title="OrderManagementView" Height="450" Width="965">
+
+    <Grid Width="942" Height="434">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="128*"/>
+            <ColumnDefinition Width="814*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="141*"/>
+            <RowDefinition Height="293*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="dataGridData" Margin="8,27,397,0"
+                  IsReadOnly="True" ItemsSource="{Binding orderList,Mode=OneWay}"  VerticalAlignment="Top" Height="324" Grid.ColumnSpan="4" Grid.RowSpan="2" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="OrderId" Binding="{Binding OrderId}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="MemberId" Binding="{Binding MemberId}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="OrderDate" Binding="{Binding OrderDate}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="RequiredDate" Binding="{Binding RequiredDate}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="ShippedDate" Binding="{Binding ShippedDate}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Freight" Binding="{Binding Freight}">
+
+                </DataGridTextColumn>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="MemberId" Margin="416,40,286,71" Grid.Column="3"/>
+        <Label Content="OrderDate" Margin="416,85,286,26" Grid.Column="3"/>
+        <Label Content="RequiredDate" Margin="416,133,286,271" Grid.Column="3" Grid.RowSpan="2"/>
+        <Label Content="ShippedDate" Margin="416,35,291,228" Grid.Row="1" Grid.Column="3"/>
+        <Label Content="Freight" Margin="416,88,305,180" Grid.Row="1" Grid.Column="3"/>
+
+        <Canvas Grid.Column="3" Margin="509,27,10,80" Grid.RowSpan="2" Name="canvasDataField">
+
+
+            <TextBox Name="MemberId" Height="33" Width="211" Canvas.Left="0" Canvas.Top="10" Text="{Binding SelectedItem.MemberId,ElementName=dataGridData,Mode=OneWay}"/>
+            <TextBox Name="OrderDate" Height="33" Width="211" Canvas.Left="0" Canvas.Top="58" Text="{Binding SelectedItem.OrderDate,ElementName=dataGridData,Mode=OneWay}" />
+            <TextBox Name="RequiredDate" Height="33" Width="211" Canvas.Left="0" Canvas.Top="105" Text="{Binding SelectedItem.RequiredDate,ElementName=dataGridData,Mode=OneWay}" />
+            <TextBox Name="ShippedDate" Height="33" Width="211" Canvas.Left="0" Canvas.Top="147" Text="{Binding SelectedItem.ShippedDate,ElementName=dataGridData,Mode=OneWay}"/>
+            <TextBox Name="Freight" Height="33" Width="211" Canvas.Left="0" Canvas.Top="201" Text="{Binding SelectedItem.Freight,ElementName=dataGridData,Mode=OneWay}"/>
+            <TextBox Visibility="Hidden" Name="OrderId" Text="{Binding SelectedItem.OrderId,ElementName=dataGridData,Mode=OneWay}"/>
+        </Canvas >
+        <Button Content="Add" Command="{Binding createCommand}" CommandParameter="{Binding Children, ElementName=canvasDataField}" HorizontalAlignment="Left" Margin="119,242,0,0" VerticalAlignment="Top" Width="150" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="20"/>
+        <Button Content="Update" Command="{Binding updateCommand}" CommandParameter="{Binding Children, ElementName=canvasDataField}" HorizontalAlignment="Left" Margin="251,242,0,0" VerticalAlignment="Top" Width="154" Grid.Row="1" Grid.Column="3" Height="20"/>
+        <Button Content="Delete" Command="{Binding deleteCommand}" CommandParameter="{Binding SelectedItem, ElementName=dataGridData}" HorizontalAlignment="Left" Margin="514,242,0,0" VerticalAlignment="Top" Width="159" Grid.Row="1" Grid.Column="3" Height="20"/>
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\bin\Debug\net6.0\ViewModels.deps.json
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\bin\Debug\net6.0\ViewModels.dll
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\bin\Debug\net6.0\ref\ViewModels.dll
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\bin\Debug\net6.0\ViewModels.pdb
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\bin\Debug\net6.0\BusinessObject.dll
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\bin\Debug\net6.0\DataAccess.dll
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\bin\Debug\net6.0\BusinessObject.pdb
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\bin\Debug\net6.0\DataAccess.pdb
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\obj\Debug\net6.0\ViewModels.csproj.AssemblyReference.cache
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\obj\Debug\net6.0\ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\obj\Debug\net6.0\ViewModels.AssemblyInfoInputs.cache
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\obj\Debug\net6.0\ViewModels.AssemblyInfo.cs
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\obj\Debug\net6.0\ViewModels.csproj.CoreCompileInputs.cache
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\obj\Debug\net6.0\ViewModels.csproj.CopyComplete
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\obj\Debug\net6.0\ViewModels.dll
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\obj\Debug\net6.0\ref\ViewModels.dll
+D:\PRN221\labs\lab1\Ass01Solution\ViewModels\obj\Debug\net6.0\ViewModels.pdb
