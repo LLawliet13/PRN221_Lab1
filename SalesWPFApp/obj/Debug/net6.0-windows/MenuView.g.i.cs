@@ -53,7 +53,7 @@ namespace SalesWPFApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SalesWPFApp;component/menuview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SalesWPFApp;V1.0.0.0;component/menuview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\MenuView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -117,7 +117,7 @@ namespace SalesWPFApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SalesWPFApp;component/membermanagementview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SalesWPFApp;V1.0.0.0;component/membermanagementview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\MemberManagementView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

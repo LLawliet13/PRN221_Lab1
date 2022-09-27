@@ -117,7 +117,7 @@ namespace SalesWPFApp.ViewModels {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SalesWPFApp;component/ordermanagementview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SalesWPFApp;V1.0.0.0;component/ordermanagementview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\OrderManagementView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
