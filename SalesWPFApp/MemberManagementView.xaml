@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SalesWPFApp"
         mc:Ignorable="d"
         Title="MemberManagementView" Height="450" Width="886">
-    <Grid>
+    <Grid Width="942" Height="434">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="12*"/>
             <ColumnDefinition Width="11*"/>
@@ -17,47 +17,49 @@
             <RowDefinition Height="141*"/>
             <RowDefinition Height="293*"/>
         </Grid.RowDefinitions>
-        <DataGrid Margin="8,27,412,95" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="2">
+        <DataGrid Name="dataGridData" Margin="8,27,397,0"
+                  IsReadOnly="True" ItemsSource="{Binding memberList,Mode=OneWay}"  VerticalAlignment="Top" Height="324" Grid.ColumnSpan="4" Grid.RowSpan="2" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="OrderId" Binding="{Binding OrderId}">
-
-                </DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="MemberId" Binding="{Binding MemberId}">
 
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="OrderDate" Binding="{Binding OrderDate}">
+                <DataGridTextColumn Width="*" Header="Email" Binding="{Binding Email}">
 
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="RequiredDate" Binding="{Binding RequiredDate}">
+                <DataGridTextColumn Width="*" Header="Company" Binding="{Binding CompanyName}">
 
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="ShippedDate" Binding="{Binding ShippedDate}">
+                <DataGridTextColumn Width="*" Header="City" Binding="{Binding City}">
 
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Freight" Binding="{Binding Freight}">
+                <DataGridTextColumn Width="*" Header="Country" Binding="{Binding Country}">
 
                 </DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Member" Binding="{Binding Member}">
+                <DataGridTextColumn Width="*" Header="Password" Binding="{Binding Password}">
 
                 </DataGridTextColumn>
 
 
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="MemberId" Margin="433,89,126,22" Grid.Column="3"/>
-        <Label Content="OrderDate" Margin="433,139,126,265" Grid.RowSpan="2" Grid.Column="3"/>
-        <Label Content="RequiredDate" Margin="428,46,131,217" Grid.Row="1" Grid.Column="3"/>
-        <Label Content="ShippedDate" Margin="433,96,126,167" Grid.Row="1" Grid.Column="3"/>
-        <Label Content="Freight" Margin="433,150,126,113" Grid.Row="1" Grid.Column="3"/>
-        <Label Content="Member" Margin="433,44,126,67" Grid.Column="3"/>
-        <TextBox Margin="514,93,45,21" Grid.Column="3"/>
-        <TextBox Margin="514,47,45,67" Grid.Column="3"/>
-        <TextBox Margin="514,5,45,265" Grid.Row="1" Grid.Column="3"/>
-        <TextBox Margin="514,54,45,217" Grid.Row="1" Grid.Column="3"/>
-        <TextBox Margin="514,104,45,167" Grid.Row="1" Grid.Column="3"/>
-        <TextBox Margin="514,154,45,118" Grid.Row="1" Grid.Column="3"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="119,242,0,0" VerticalAlignment="Top" Width="150" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="20"/>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="251,242,0,0" VerticalAlignment="Top" Width="154" Grid.Row="1" Grid.Column="3" Height="20"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="514,242,0,0" VerticalAlignment="Top" Width="159" Grid.Row="1" Grid.Column="3" Height="20"/>
+        <Label Content="email" Margin="414,53,288,58" Grid.Column="3"/>
+        <Label Content="companyName" Margin="412,111,291,0" Grid.Column="3"/>
+        <Label Content="city" Margin="416,19,291,244" Grid.Row="1" Grid.Column="3"/>
+        <Label Content="country" Margin="416,76,305,192" Grid.Row="1" Grid.Column="3" RenderTransformOrigin="0.515,-0.466"/>
+        <Label Content="password" Margin="416,134,305,135" Grid.Row="1" Grid.Column="3"/>
+        <Canvas Grid.Column="3" Margin="509,27,10,80" Grid.RowSpan="2" Name="canvasDataField">
+
+
+            <TextBox Name="email" Height="33" Width="211" Canvas.Left="0" Canvas.Top="23" Text="{Binding SelectedItem.Email,ElementName=dataGridData,Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <TextBox Name="companyName" Height="33" Width="211" Canvas.Left="0" Canvas.Top="80" Text="{Binding SelectedItem.CompanyName,ElementName=dataGridData,Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <TextBox Name="city" Height="34" Width="211" Canvas.Left="0" Canvas.Top="130" Text="{Binding SelectedItem.City,ElementName=dataGridData,Mode=OneWay}" RenderTransformOrigin="0.497,-0.828" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox Name="country" Height="33" Width="211" Canvas.Left="0" Canvas.Top="189" Text="{Binding SelectedItem.Country,ElementName=dataGridData,Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox Visibility="Hidden" Name="MemberId" Text="{Binding SelectedItem.MemberId,ElementName=dataGridData,Mode=OneWay}"/>
+            <TextBox x:Name="password" Height="33" Width="211" Canvas.Left="0" Canvas.Top="246" Text="{Binding SelectedItem.Password, ElementName=dataGridData, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.497,-0.201"/>
+        </Canvas >
+        <Button Content="Add" Command="{Binding createCommand}" CommandParameter="{Binding Children, ElementName=canvasDataField}" HorizontalAlignment="Left" Margin="119,242,0,0" VerticalAlignment="Top" Width="150" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="20"/>
+        <Button Content="Update" Command="{Binding updateCommand}" CommandParameter="{Binding Children, ElementName=canvasDataField}" HorizontalAlignment="Left" Margin="251,242,0,0" VerticalAlignment="Top" Width="154" Grid.Row="1" Grid.Column="3" Height="20"/>
+        <Button Content="Delete" Command="{Binding deleteCommand}" CommandParameter="{Binding SelectedItem, ElementName=dataGridData}" HorizontalAlignment="Left" Margin="514,242,0,0" VerticalAlignment="Top" Width="159" Grid.Row="1" Grid.Column="3" Height="20"/>
+
     </Grid>
 </Window>

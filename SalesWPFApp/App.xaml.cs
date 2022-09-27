@@ -35,13 +35,14 @@ namespace SalesWPFApp
             services.AddSingleton(typeof(IProductRepository), typeof(ProductRepositoryImpl));
             services.AddSingleton(typeof(IOrderDetailRepository), typeof(OrderDetailRepositoryImpl));
             services.AddSingleton(typeof(IOrderRepository), typeof(OrderRepositoryImpl));
-            
+            services.AddSingleton<OrderManagement>();
+
             services.AddSingleton<MemberManagement>();
 
-            services.AddSingleton<ProductManagement>();
 
             services.AddSingleton(typeof(ILoginManagement), typeof(LoginManagement));
-            services.AddSingleton<OrderManagement>();
+            services.AddSingleton<ProductManagement>();
+
 
 
             services.AddSingleton<LoginViewModel>();
@@ -72,18 +73,22 @@ namespace SalesWPFApp
             {
                 DataContext = s.GetRequiredService<MemberManagementViewModel>()
             });
-           
+
 
         }
         public void OnStartUp(object sender, StartupEventArgs e)
         {
             var loginManagementView = serviceProvider.GetRequiredService<LoginView>();
-            var orderManagementView = serviceProvider.GetRequiredService<OrderManagementView>();
-            var memberManagementView = serviceProvider.GetRequiredService<MemberManagementView>();
             var productManagementView = serviceProvider.GetRequiredService<ProductManagementView>();
+            var memberManagementView = serviceProvider.GetRequiredService<MemberManagementView>();
+
+
+            var orderManagementView = serviceProvider.GetRequiredService<OrderManagementView>();
+
+
             loginManagementView.Show();
         }
 
-        
+
     }
 }

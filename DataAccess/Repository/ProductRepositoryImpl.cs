@@ -36,7 +36,14 @@ namespace DataAccess.Repository
         public int Update(int id, Product Product)
         {
             Product.ProductId = id;
-            _context.Update(Product);
+            Product oldProduct = _context.Products.Where(o => o.ProductId == id).FirstOrDefault();
+            oldProduct.ProductId = id;
+            oldProduct.CategoryId = Product.CategoryId;
+            oldProduct.ProductName = Product.ProductName;
+            oldProduct.Weight = Product.Weight;
+            oldProduct.UnitPrice = Product.UnitPrice;
+            oldProduct.UnitInStock = Product.UnitInStock;
+            _context.Update(oldProduct);
             return _context.SaveChanges();
         }
 

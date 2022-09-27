@@ -35,12 +35,20 @@ namespace DataAccess.Repository
 
         public int Update(int id, Member member)
         {
+
             member.MemberId = id;
-            _context.Update(member);
+            Member oldMember = _context.Members.Where(o => o.MemberId == id).FirstOrDefault();
+            oldMember.MemberId = id;
+            oldMember.Email = member.Email;
+            oldMember.CompanyName = member.CompanyName;
+            oldMember.City = member.City;
+            oldMember.Country = member.Country;
+            oldMember.Password = member.Password;
+            _context.Update(oldMember);
             return _context.SaveChanges();
         }
 
-     
+
 
     }
 }
